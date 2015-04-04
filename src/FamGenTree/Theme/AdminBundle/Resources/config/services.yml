@@ -1,0 +1,4 @@
+services:
+#    fam_gen_tree_theme_admin.example:
+#        class: FamGenTree\Theme\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,11 @@
+language: php
+php:
+  - 5.6
+  - 5.5
+  - 5.4
+  - hhvm
+install:
+  - composer install
+git:
+  submodules: false
+script: phpunit --configuration src/Webtrees/LegacyBundle/src/phpunit.xml --coverage-text

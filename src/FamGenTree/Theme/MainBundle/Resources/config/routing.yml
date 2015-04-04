@@ -1,0 +1,3 @@
+fgt_theme_main_example_home:
+    path:     /example
+    defaults: { _controller: FamGenTreeThemeMainBundle:Example:index }

@@ -1,3 +1,13 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fam_gene_tree_setup:
+    path:   /setup/
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /app_setup.php
+        permanent: false
+
+fam_gene_tree_app:
+    resource: "@FamGenTreeAppBundle/Resources/config/routing.yml"
+    prefix:   /

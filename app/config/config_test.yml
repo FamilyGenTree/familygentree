@@ -1,6 +1,13 @@
 imports:
     - { resource: config_dev.yml }
 
+parameters:
+    database_driver:   pdo_mysql
+    database_name:     testdb
+    database_user:     testdb
+    database_password: testdb
+    database_prefix:   test_
+
 framework:
     test: ~
     session:

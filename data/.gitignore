@@ -1,0 +1,8 @@
+*.ged
+*.GED
+gedcoms/*
+!gedcoms/.gitkeep
+uploads/*
+!uploads/.gitkeep
+imports/*
+!imports/.gitkeep

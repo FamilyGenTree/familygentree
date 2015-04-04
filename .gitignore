@@ -9,6 +9,9 @@
 /composer.phar
 /vendor/
 /web/bundles/
+/web/assetic/*
+/web/css/*
+/web/js/*
 
 *.swp
 .idea/

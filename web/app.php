@@ -17,8 +17,9 @@ $apcLoader->register(true);
 
 require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
+$environment = file_exists(__DIR__ . '/../app/config/parameters.yml') ? 'prod' : 'setup';
 
-$kernel = new AppKernel('prod', false);
+$kernel = new AppKernel($environment, true);
 $kernel->loadClassCache();
 //$kernel = new AppCache($kernel);
 
