@@ -9,3 +9,9 @@
 /composer.phar
 /vendor/
 /web/bundles/
+
+*.swp
+.idea/
+.vagrant/
+/puphpet/
+/Vagrantfile
