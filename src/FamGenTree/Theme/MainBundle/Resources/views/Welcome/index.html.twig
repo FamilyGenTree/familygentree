@@ -1,2 +1,8 @@
-{%  set title = 'Welcome' %}
+{% set title = 'Welcome' %}
 {% extends "FamGenTreeThemeMainBundle:Default:_base.html.twig" %}
+
+{% block content %}
+    <h1>Willkommen</h1>
+
+    {{ welcome_text }}
+{% endblock %}

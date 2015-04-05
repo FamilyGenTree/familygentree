@@ -13,7 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class WelcomeController extends Controller {
 
     public function indexAction() {
-        return $this->render('FamGenTreeThemeMainBundle:Welcome:index.html.twig', array());
+        return $this->render(
+            'FamGenTreeThemeMainBundle:Welcome:index.html.twig',
+            array(
+                'welcome_text' => 'bla, böa'
+            )
+        );
 
     }
 }
