@@ -64,7 +64,7 @@ class FirstSettingsStep extends StepBase
             $canonicalizer = new Canonicalizer();
 
             $statement = $pdo->prepare(
-                $this->applyPrefix("INSERT IGNORE INTO `###PREFIX###config` (`section`, `config_key`, `value`) VALUES (:section, :config_key, :value);")
+                $this->applyPrefix("INSERT IGNORE INTO `###PREFIX###config` (`section`, `config_key`, `config_value`) VALUES (:section, :config_key, :value);")
             );
             $rootDir   = $this->container->get('kernel')->getRootDir();
             $dataDir   = $rootDir . DIRECTORY_SEPARATOR . '../data';
@@ -88,10 +88,10 @@ class FirstSettingsStep extends StepBase
             $statement = $pdo->prepare(
                 $this->applyPrefix(
                     'INSERT INTO `###PREFIX###user`
-(`user_id`,
-`user_name`,
+(`id_user`,
+`username`,
 `username_canonical`,
-`real_name`,
+`realname`,
 `email`,
 `email_canonical`,
 `password`,
@@ -140,26 +140,6 @@ VALUES
                     ':credentials_expired' => 0,
                 )
             );
-            $statement = $pdo->prepare(
-                $this->applyPrefix("INSERT IGNORE INTO `###PREFIX###user_setting` (`user_id`, `setting_name`, `setting_value`) VALUES (:user_id, :key_name, :value);")
-            );
-            foreach (array(
-                         'canadmin'          => 1,
-                         'language'          => $this->getLocale(),
-                         'verified'          => 1,
-                         'verified_by_admin' => 1,
-                         'auto_accept'       => 0,
-                         'visibleonline'     => 1
-                     ) as $key => $value
-            ) {
-                $statement->execute(
-                    array(
-                        ':user_id'  => $userId,
-                        ':key_name' => $key,
-                        ':value'    => $value
-                    )
-                );
-            }
         } catch (\Exception $ex) {
             $this->addResult(
                 new StepResult(

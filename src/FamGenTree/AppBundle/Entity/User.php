@@ -14,13 +14,37 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="users")
  * @ORM\AttributeOverrides({
- *      @ORM\AttributeOverride(name="username",
+ *      @ORM\AttributeOverride(
+ *          name="username",
  *          column=@ORM\Column(
- *              name     = "user_name",
+ *              nullable = false,
+ *              length   = 100
+ *          )
+ *      ),
+ *      @ORM\AttributeOverride(
+ *          name="usernameCanonical",
+ *          column=@ORM\Column(
+ *              name     = "username_canonical",
  *              nullable = false,
  *              unique   = true,
+ *              length   = 100
+ *          )
+ *      ),
+ *      @ORM\AttributeOverride(
+ *          name="password",
+ *          column=@ORM\Column(
+ *              nullable = true,
+ *              unique   = false,
+ *              length   = 100
+ *          )
+ *      ),
+ *      @ORM\AttributeOverride(
+ *          name="salt",
+ *          column=@ORM\Column(
+ *              nullable = true,
+ *              unique   = false,
  *              length   = 100
  *          )
  *      ),
@@ -32,14 +56,14 @@ class User
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", name="user_id")
+     * @ORM\Column(type="integer", name="id_user")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string
-     * @ORM\Column(type="string", name="real_name",nullable=true,length=100)
+     * @ORM\Column(type="string", name="realname",nullable=true,length=100)
      */
     protected $realName;
 

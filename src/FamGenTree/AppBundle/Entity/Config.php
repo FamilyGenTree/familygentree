@@ -40,7 +40,7 @@ class Config
 
     /**
      * @var
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text", name="config_value", nullable=true)
      */
     protected $value;
 
