@@ -8,17 +8,22 @@
 
 namespace FamGenTree\AppBundle\Controller;
 
+use FamGenTree\AppBundle\Context\Configuration\Domain\ConfigKeys;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class WelcomeController extends Controller {
+class WelcomeController extends Controller
+{
 
-    public function indexAction() {
+    public function indexAction()
+    {
+        $cfg = $this->get('fgt.configuration');
+
         return $this->render(
             'FamGenTreeThemeMainBundle:Welcome:index.html.twig',
             array(
-                'welcome_text' => 'bla, böa'
+                'site_name'    => $cfg->getValue(ConfigKeys::SITE_NAME),
+                'welcome_text' => $cfg->getValue(ConfigKeys::SITE_WELCOME_TEXT)
             )
         );
-
     }
 }

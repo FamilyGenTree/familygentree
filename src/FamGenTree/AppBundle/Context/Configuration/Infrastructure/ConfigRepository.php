@@ -44,7 +44,6 @@ class ConfigRepository
         foreach ($values as $key => $value) {
             $config->set($key, $value, FgtConfig::SCOPE_SITE);
         }
-        $this->loadFromOldDb($config, FgtConfig::SCOPE_SITE);
         $this->loadFromNewDb($config, FgtConfig::SCOPE_SITE);
         if (file_exists(__DIR__ . '/../../../Resources/config/config.user.ini')) {
             $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.user.ini');
@@ -91,27 +90,6 @@ class ConfigRepository
 
     public function store(FgtConfig $configuration)
     {
-    }
-
-    public function loadFromOldDb(FgtConfig $config, $scope)
-    {
-        if (!Database::i()->isConnected()) {
-            Database::i()->createInstance(
-                $this->container->getParameter('database_host'),
-                $this->container->getParameter('database_port'),
-                $this->container->getParameter('database_name'),
-                $this->container->getParameter('database_user'),
-                $this->container->getParameter('database_password'),
-                $this->container->getParameter('database_prefix')
-            );
-        }
-        $values = Database::i()->prepare(
-            "SELECT SQL_CACHE setting_name, setting_value FROM `##site_setting`"
-        )
-                          ->fetchAssoc();
-        foreach ($values as $key => $value) {
-            $config->set($key, $value, $scope);
-        }
     }
 
     private function loadFromNewDb(FgtConfig $config, $scope)

@@ -1,2 +1,4 @@
 {{ title = 'Hallo' }}
 {% extends "FamGenTreeThemeMainBundle:Default:_base.html.twig" %}
+
+{{ render(controller("Bundle:Controller:action", {max :3})) }}

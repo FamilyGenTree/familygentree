@@ -1,8 +1,17 @@
-{% set title = 'Welcome' %}
 {% extends "FamGenTreeThemeMainBundle:Default:_base.html.twig" %}
 
-{% block content %}
-    <h1>Willkommen</h1>
+{% block title %}
+    Welcome to {{ site_name }}!
+{% endblock %}
 
-    {{ welcome_text }}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <div>
+                {{ welcome_text|raw }}
+            </div>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">{{ "Learn more »"|trans }}</a>
+                <a class="btn btn-success btn-lg" href="{{ url('_fgt_login') }}">{{ "Login"|trans }}</a></p>
+        </div>
+    </div>
 {% endblock %}

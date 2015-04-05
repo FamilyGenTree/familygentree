@@ -23,4 +23,5 @@ interface ConfigKeys
     const SITE_PATH_DATA            = 'site.path.data';
     const SITE_PATH_DATA_GEDCOMS    = 'site.path.gedcoms';
     const SITE_PATH_DATA_UPLOADS    = 'site.path.uploads';
+    const SITE_WELCOME_TEXT         = 'site.welcome.text';
 }

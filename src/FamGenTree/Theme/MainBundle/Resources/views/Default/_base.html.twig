@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>{{ title }}</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {#{% stylesheets '@bootstrap_css' '@jquery_ui_css' filter='cssrewrite' %}#}
@@ -89,7 +89,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 id="page-title">{{ title }}</h1>
+                    <h1 id="page-title">{{ block('title') }}</h1>
                 </div>
             </div>
         </div>
@@ -102,8 +102,8 @@
 </div>
 
 {% block footer %}
-    <footer>
-        <div class="container">
+    <div class="container">
+        <footer>
             <div class="row">
                 <div class="col-lg-12">
 
@@ -149,15 +149,12 @@
 
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 {% endblock %}
 
 
 {% block footer_javascripts %}
-
-
-
     <script type="text/javascript">
         /* <![CDATA[ */
         (function () {
