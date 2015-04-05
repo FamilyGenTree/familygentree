@@ -1,0 +1,25 @@
+assetic:
+    filters:
+        cssrewrite: ~
+        closure:
+            jar: "%kernel.root_dir%/Resources/java/compiler-20140407.jar"
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar"
+    assets:
+        jquery_ui_js:
+            inputs:
+                - '@FamGenTreeThemeMainBundle/Resources/public/jquery-ui-1.11.4/jquery-ui.min.js'
+        jquery_ui_css:
+            inputs:
+                - 'bundles/famgentreethememain/jquery-ui-1.11.4/jquery-ui.css'
+                - 'bundles/famgentreethememain/jquery-ui-1.11.4/jquery-ui.theme.css'
+                - 'bundles/famgentreethememain/jquery-ui-1.11.4/jquery-ui.structure.css'
+        bootstrap_js:
+            inputs:
+                - '@FamGenTreeThemeMainBundle/Resources/public/js/bootstrap-3.3.2/bootstrap.min.js'
+        bootstrap_css:
+            inputs:
+                - 'bundles/famgentreethememain/css/styles.css'
+#                - 'bundles/familygentree/css/simplex/bootstrap.css'
+#                - 'bundles/famgentreethememain/css/bootstrap-3.3.2/bootstrap.min.css'
+#                - 'bundles/famgentreethememain/css/bootstrap-3.3.2/bootstrap-theme.min.css'
