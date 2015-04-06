@@ -1,3 +1,59 @@
-fam_gen_tree_theme_admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: FamGenTreeThemeAdminBundle:Default:index }
+fgt_theme_admin_example:
+    path:   /example
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:index }
+
+fgt_theme_admin_example_basic_table:
+    path:   /example/basic-table
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:basicTable }
+
+fgt_theme_admin_example_blank:
+    path:   /example/blank
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:blank }
+
+fgt_theme_admin_example_buttons:
+    path:   /example/buttons
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:buttons }
+
+fgt_theme_admin_example_calendar:
+    path:   /example/calendar
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:calendar }
+
+fgt_theme_admin_example_chartjs:
+    path:   /example/chart-js
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:chartJs }
+
+fgt_theme_admin_example_form_component:
+    path:   /example/form-component
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:formComponent }
+
+fgt_theme_admin_example_gallery:
+    path:   /example/gallery
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:gallery }
+
+fgt_theme_admin_example_general:
+    path:   /example/general
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:general }
+
+fgt_theme_admin_example_lock_screen:
+    path:   /example/lock-screen
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:lockScreen }
+
+fgt_theme_admin_example_login:
+    path:   /example/login
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:login }
+
+fgt_theme_admin_example_morris:
+    path:   /example/morris
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:morris }
+
+fgt_theme_admin_example_panels:
+    path:   /example/panels
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:panels }
+
+fgt_theme_admin_example_responsive_table:
+    path:   /example/responsive-table
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:responsiveTable }
+
+fgt_theme_admin_example_todo_list:
+    path:   /example/todo-list
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:todoList }

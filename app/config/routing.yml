@@ -8,6 +8,11 @@ fam_gene_tree_setup:
         path: /app_setup.php
         permanent: false
 
-fam_gene_tree_app:
+fam_gen_tree_app:
     resource: "@FamGenTreeAppBundle/Resources/config/routing.yml"
     prefix:   /
+
+fam_gen_tree_admin:
+    resource: "@FamGenTreeAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+

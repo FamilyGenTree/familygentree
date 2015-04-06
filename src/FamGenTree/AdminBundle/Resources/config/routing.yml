@@ -1,0 +1,3 @@
+fgt_admin_homepage:
+    path:     /
+    defaults: { _controller: FamGenTreeAdminBundle:Default:index }

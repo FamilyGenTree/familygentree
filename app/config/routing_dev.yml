@@ -20,3 +20,7 @@ _main:
 _fgt_theme_main:
     resource: "@FamGenTreeThemeMainBundle/Resources/config/routing.yml"
     prefix:   /theme/main
+
+_fgt_theme_admin:
+    resource: "@FamGenTreeThemeAdminBundle/Resources/config/routing.yml"
+    prefix:   /theme/admin
