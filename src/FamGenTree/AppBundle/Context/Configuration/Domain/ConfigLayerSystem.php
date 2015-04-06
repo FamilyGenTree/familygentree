@@ -8,6 +8,6 @@
 namespace FamGenTree\AppBundle\Context\Configuration\Domain;
 
 
-class ConfigSectionUser extends ConfigSection {
+class ConfigLayerSystem extends ConfigLayer {
 
 }

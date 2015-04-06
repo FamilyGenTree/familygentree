@@ -27,8 +27,13 @@ class Config
     protected $id;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $layer;
+
+    /**
      * @var
-     * @ORM\Column(type="string", name="section", length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $section;
 
@@ -43,6 +48,23 @@ class Config
      * @ORM\Column(type="text", name="config_value", nullable=true)
      */
     protected $value;
+
+    /**
+     * @return string
+     */
+    public function getLayer()
+    {
+        return $this->layer;
+    }
+
+    /**
+     * @param mixed $layer
+     */
+    public function setLayer($layer)
+    {
+        $this->layer = $layer;
+    }
+
 
     /**
      * @return mixed

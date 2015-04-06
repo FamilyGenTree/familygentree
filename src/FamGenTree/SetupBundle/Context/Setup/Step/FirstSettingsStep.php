@@ -7,6 +7,7 @@
 
 namespace FamGenTree\SetupBundle\Context\Setup\Step;
 
+use FamGenTree\AppBundle\Context\Configuration\Domain\FgtConfig;
 use FamGenTree\SetupBundle\Context\Setup\Config\ConfigAbstract;
 use FamGenTree\SetupBundle\Context\Setup\Config\ConfigFirstSettings;
 use FOS\UserBundle\Util\Canonicalizer;
@@ -64,21 +65,23 @@ class FirstSettingsStep extends StepBase
             $canonicalizer = new Canonicalizer();
 
             $statement = $pdo->prepare(
-                $this->applyPrefix("INSERT IGNORE INTO `###PREFIX###config` (`section`, `config_key`, `config_value`) VALUES (:section, :config_key, :value);")
+                $this->applyPrefix("INSERT IGNORE INTO `###PREFIX###config` (`layer`, `section`, `config_key`, `config_value`)
+                    VALUES (:layer, :section, :config_key, :value);")
             );
             $rootDir   = $this->container->get('kernel')->getRootDir();
             $dataDir   = $rootDir . DIRECTORY_SEPARATOR . '../data';
             foreach (array(
-                         'site:locale'   => $this->getLocale(),
-                         'site:name'     => 'Site Name',
-                         'site:url'      => $_SERVER['SERVER_NAME'],
-                         'site:path.imports' => $dataDir . DIRECTORY_SEPARATOR . 'imports',
-                         'site:path.uploads' => $dataDir . DIRECTORY_SEPARATOR . 'uploads',
-                         'site:path.gedcoms' => $dataDir . DIRECTORY_SEPARATOR . 'gedcoms'
+                         'system:site:locale'       => $this->getLocale(),
+                         'site:site:name'           => 'My Family\'s Generation Tree',
+                         'site:site:url'            => $_SERVER['SERVER_NAME'],
+                         'system:site:path.imports' => $dataDir . DIRECTORY_SEPARATOR . 'imports',
+                         'system:site:path.uploads' => $dataDir . DIRECTORY_SEPARATOR . 'uploads',
+                         'system:site:path.gedcoms' => $dataDir . DIRECTORY_SEPARATOR . 'gedcoms'
                      ) as $key => $value) {
-                list($section, $config_key) = explode(':', $key);
+                list($layer, $section, $config_key) = explode(':', $key);
                 $statement->execute(
                     array(
+                        ':layer'      => $layer,
                         ':section'    => $section,
                         ':config_key' => $config_key,
                         ':value'      => $value
@@ -155,12 +158,12 @@ VALUES
     protected function applyPrefix($sql)
     {
         return str_replace(array(
-                               '###PREFIX###',
-                               '###COLATION###'
-                           ), array(
-                               $this->prefix,
-                               'utf8_unicode_ci'
-                           ), $sql);
+            '###PREFIX###',
+            '###COLATION###'
+        ), array(
+            $this->prefix,
+            'utf8_unicode_ci'
+        ), $sql);
     }
 
     protected function getPDO()

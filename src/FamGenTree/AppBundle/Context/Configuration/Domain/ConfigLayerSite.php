@@ -7,7 +7,6 @@
 
 namespace FamGenTree\AppBundle\Context\Configuration\Domain;
 
-
-class ConfigSectionRuntime extends ConfigSection {
+class ConfigLayerSite extends ConfigLayer {
 
 }

@@ -22,7 +22,12 @@ Debug::enable();
 
 require_once __DIR__ . '/../app/AppKernel.php';
 
-$environment = file_exists(__DIR__ . '/../app/config/parameters.yml') ? 'dev' : 'setup';
+$setupFinsihed = file_exists(__DIR__ . '/../app/config/parameters.yml');
+if (false === $setupFinsihed) {
+    header('Location: /setup.php');
+    exit(0);
+}
+$environment = $setupFinsihed ? 'dev' : 'setup';
 
 $kernel = new AppKernel($environment, true);
 $kernel->loadClassCache();

@@ -11,15 +11,15 @@ namespace FamGenTree\AppBundle\Context\Configuration\Domain;
 class ConfigValue {
     protected $value;
     protected $key;
-    protected $scope;
+    protected $layer;
     protected $immutable=false;
 
-    function __construct($value, $immutable, $key, $scope)
+    function __construct($value, $immutable, $key, $layer)
     {
         $this->value     = $value;
         $this->immutable = $immutable;
         $this->key       = $key;
-        $this->scope     = $scope;
+        $this->layer     = $layer;
     }
 
     /**
@@ -41,9 +41,9 @@ class ConfigValue {
     /**
      * @return mixed
      */
-    public function getScope()
+    public function getLayer()
     {
-        return $this->scope;
+        return $this->layer;
     }
 
     /**

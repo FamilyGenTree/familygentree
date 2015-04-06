@@ -1,5 +1,6 @@
 CREATE TABLE `###PREFIX###config` (
   id_config    INT AUTO_INCREMENT NOT NULL,
+  layer        VARCHAR(50)       NOT NULL,
   section      VARCHAR(50)        NOT NULL,
   config_key   VARCHAR(255)       NOT NULL,
   config_value LONGTEXT DEFAULT NULL,

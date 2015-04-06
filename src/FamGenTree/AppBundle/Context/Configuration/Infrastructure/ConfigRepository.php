@@ -34,27 +34,27 @@ class ConfigRepository
             realpath(
                 $this->container->get('kernel')
                                 ->getRootDir() . '/..'),
-            FgtConfig::SCOPE_SITE
+            FgtConfig::LAYER_SITE
         );
         $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.system.ini');
         foreach ($values as $key => $value) {
-            $config->set($key, $value, FgtConfig::SCOPE_SITE);
+            $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
         }
         $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.site.ini');
         foreach ($values as $key => $value) {
-            $config->set($key, $value, FgtConfig::SCOPE_SITE);
+            $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
         }
-        $this->loadFromNewDb($config, FgtConfig::SCOPE_SITE);
+        $this->loadFromNewDb($config, FgtConfig::LAYER_SYSTEM);
         if (file_exists(__DIR__ . '/../../../Resources/config/config.user.ini')) {
             $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.user.ini');
             foreach ($values as $key => $value) {
-                $config->set($key, $value, FgtConfig::SCOPE_THEME);
+                $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
             }
         }
         if (file_exists(__DIR__ . '/../../../Resources/config/config.theme.ini')) {
             $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.theme.ini');
             foreach ($values as $key => $value) {
-                $config->set($key, $value, FgtConfig::SCOPE_THEME);
+                $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
             }
         }
 
@@ -66,22 +66,22 @@ class ConfigRepository
         $config = new FgtConfig();
         $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.system.ini');
         foreach ($values as $key => $value) {
-            $config->set($key, $value, FgtConfig::SCOPE_SITE);
+            $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
         }
         $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.site.ini');
         foreach ($values as $key => $value) {
-            $config->set($key, $value, FgtConfig::SCOPE_SITE);
+            $config->set($key, $value, FgtConfig::LAYER_SYSTEM);
         }
         if (file_exists(__DIR__ . '/../../../Resources/config/config.user.ini')) {
             $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.user.ini');
             foreach ($values as $key => $value) {
-                $config->set($key, $value, FgtConfig::SCOPE_THEME);
+                $config->set($key, $value, FgtConfig::LAYER_THEME);
             }
         }
         if (file_exists(__DIR__ . '/../../../Resources/config/config.theme.ini')) {
             $values = parse_ini_file(__DIR__ . '/../../../Resources/config/config.theme.ini');
             foreach ($values as $key => $value) {
-                $config->set($key, $value, FgtConfig::SCOPE_THEME);
+                $config->set($key, $value, FgtConfig::LAYER_THEME);
             }
         }
 
@@ -92,13 +92,18 @@ class ConfigRepository
     {
     }
 
-    private function loadFromNewDb(FgtConfig $config, $scope)
+    private function loadFromNewDb(FgtConfig $config, $layer)
     {
         $repo = $this->container->get('doctrine')->getRepository('\FamGenTree\AppBundle\Entity\Config');
         $repo->findAll();
         /** @var Config $configObj */
         foreach ($repo->findAll() as $configObj) {
-            $config->set($configObj->getSection() . '.' . $configObj->getKey(), $configObj->getValue(), $scope);
+            $layerConfig = $configObj->getLayer();
+            $config->set(
+                $configObj->getSection() . '.' . $configObj->getKey(),
+                $configObj->getValue(),
+                empty($layerConfig) ? $layer : $layerConfig
+            );
         }
     }
 }

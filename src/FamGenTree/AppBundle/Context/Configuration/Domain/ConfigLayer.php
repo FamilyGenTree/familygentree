@@ -10,7 +10,7 @@ namespace FamGenTree\AppBundle\Context\Configuration\Domain;
 
 use FamGenTree\AppBundle\Context\Configuration\Domain\Exception\ImmutableValue;
 
-abstract class ConfigSection
+abstract class ConfigLayer
 {
 
     protected $store = array();
