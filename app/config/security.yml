@@ -35,14 +35,14 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-#        admin_secured_area:
-#            pattern:    ^/admin
-#            form_login:
-#                check_path: _fgt_security_check
-#                login_path: _fgt_login
-#            logout:
-#                path:   _fgt_logout
-#                target: _fgt_homepage
+        admin_secured_area:
+            pattern:    ^/admin
+            form_login:
+                check_path: _fgt_security_check
+                login_path: _fgt_login
+            logout:
+                path:   _fgt_logout
+                target: _fgt_homepage
         main:
             pattern: ^/
             form_login:

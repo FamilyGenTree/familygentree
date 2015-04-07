@@ -13,7 +13,6 @@
     <link href="{{ asset('bundles/famgentreethemeadmin/css/bootstrap.css') }}" rel="stylesheet">
     <!--external css-->
     <link href="{{ asset('bundles/famgentreethemeadmin/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/famgentreethemeadmin/css/zabuto_calendar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/famgentreethemeadmin/js/gritter/css/jquery.gritter.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/famgentreethemeadmin/lineicons/style.css') }}">
 
@@ -22,10 +21,12 @@
     <link href="{{ asset('bundles/famgentreethemeadmin/css/style-responsive.css') }}" rel="stylesheet">
 
     {% block head_styles %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/famgentreethemeadmin/css/zabuto_calendar.css') }}">
     {% endblock %}
 
+    {% block head_scripts %}
     <script src="{{ asset('bundles/famgentreethemeadmin/js/chart-master/Chart.js') }}"></script>
-
+    {% endblock %}
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="{{ asset('lib/html5shiv/html5shiv.min.js') }}"></script>
