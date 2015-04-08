@@ -11,7 +11,7 @@ CREATE TABLE `###PREFIX###config` (
   COLLATE utf8_unicode_ci
   ENGINE = InnoDB;
 
-CREATE TABLE `###PREFIX###user` (
+CREATE TABLE `###PREFIX###users` (
   id_user               INT AUTO_INCREMENT              NOT NULL,
   username              VARCHAR(100)                    NOT NULL,
   username_canonical    VARCHAR(100)                    NOT NULL,
