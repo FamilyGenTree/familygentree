@@ -90,7 +90,7 @@ class FirstSettingsStep extends StepBase
             }
             $statement = $pdo->prepare(
                 $this->applyPrefix(
-                    'INSERT INTO `###PREFIX###user`
+                    'INSERT INTO `###PREFIX###users`
 (`id_user`,
 `username`,
 `username_canonical`,

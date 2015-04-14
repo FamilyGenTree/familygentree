@@ -1,0 +1,5 @@
+{% if options.compressed %}
+    {{ block('compressed_root') }}
+{% else %}
+    {{ block('root') }}
+{% endif %}

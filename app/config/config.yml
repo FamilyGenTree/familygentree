@@ -4,6 +4,12 @@ imports:
     - { resource: services.yml }
     - { resource: assetic.yml }
 
+parameters:
+    knp_menu.renderer.twig.options:
+        currentClass: 'active'
+        branch_class: 'dropdown'
+        template: 'FamGenTreeThemeMainBundle:Default:knp_menu.html.twig'
+
 framework:
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }

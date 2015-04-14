@@ -73,6 +73,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FamGenTree\Theme\MainBundle\FamGenTreeThemeMainBundle(),
             new FamGenTree\Theme\AdminBundle\FamGenTreeThemeAdminBundle()
         );
@@ -88,7 +89,6 @@ class AppKernel extends Kernel
     {
         return [
             new FOS\UserBundle\FOSUserBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FamGenTree\AppBundle\FamGenTreeAppBundle(),
             new FamGenTree\AdminBundle\FamGenTreeAdminBundle()
         ];
