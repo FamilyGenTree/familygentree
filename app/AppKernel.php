@@ -7,6 +7,7 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
+
         $bundles = [];
 
         if ('test' === $this->getEnvironment() || $this->isSetupMode()) {
@@ -75,8 +76,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FamGenTree\Theme\MainBundle\FamGenTreeThemeMainBundle(),
-            new FamGenTree\Theme\AdminBundle\FamGenTreeThemeAdminBundle()
-        );
+            new FamGenTree\Theme\AdminBundle\FamGenTreeThemeAdminBundle()        );
 
         return $bundles;
     }
@@ -90,7 +90,8 @@ class AppKernel extends Kernel
         return [
             new FOS\UserBundle\FOSUserBundle(),
             new FamGenTree\AppBundle\FamGenTreeAppBundle(),
-            new FamGenTree\AdminBundle\FamGenTreeAdminBundle()
+            new FamGenTree\AdminBundle\FamGenTreeAdminBundle(),
+            new FamGenTree\Theme\AdminFosUserBundle\FamGenTreeThemeAdminFosUserBundle()
         ];
     }
 
