@@ -6,8 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bundles/famgentreethemeadmin/css/bootstrap.css') }}" rel="stylesheet">
@@ -39,14 +38,14 @@
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
         <!--header start-->
-        {% include 'FamGenTreeThemeAdminBundle:Example:_part.header.html.twig' %}
+        {% include 'FamGenTreeThemeAdminBundle:Default:_part.header.html.twig' %}
         <!--header end-->
 
         <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
-        {% include 'FamGenTreeThemeAdminBundle:Example:_part.side_menu.html.twig' with {'active': 'general'} %}
+        {% include 'FamGenTreeThemeAdminBundle:Default:_part.side_menu.html.twig' with {'active': 'general'} %}
         <!--sidebar end-->
 
         <!-- **********************************************************************************************************************************************************

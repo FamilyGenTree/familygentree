@@ -147,7 +147,11 @@
     </div>
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
-            <li><a class="logout" href="{{ url('fgt_theme_admin_example_login') }}">Logout</a></li>
+            {% if app.user %}
+                <li><a class="logout" href="{{ url('_fgt_logout') }}">Logout</a></li>
+            {% else %}
+                <li><a class="logout" href="{{ url('_fgt_login') }}">Login</a></li>
+            {% endif %}
         </ul>
     </div>
 </header>

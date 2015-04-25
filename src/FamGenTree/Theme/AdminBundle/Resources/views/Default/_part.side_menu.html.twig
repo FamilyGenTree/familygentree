@@ -1,0 +1,23 @@
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        <!-- sidebar menu start-->
+{% if app.user %}
+        <ul class="sidebar-menu" id="nav-accordion-user">
+        <p class="centered">
+                <a href="{{ url('fos_user_profile_edit') }}">
+                    <img src="{{ asset('bundles/famgentreethemeadmin/img/ui-sam.jpg')}}" class="img-rounded" width="60">
+                </a>
+            </p>
+            <h5 class="centered">{{ app.user.username }}</h5>
+        </ul>
+{% endif %}
+
+        {{ knp_menu_render('FamGenTreeAdminBundle:MenuBuilder:adminMenu',{
+            'template': 'FamGenTreeThemeAdminBundle:Default:knp_menu.html.twig',
+            'branch_class': 'sub-menu'
+        }
+        ) }}
+
+        <!-- sidebar menu end-->
+    </div>
+</aside>

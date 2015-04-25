@@ -91,7 +91,6 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FamGenTree\AppBundle\FamGenTreeAppBundle(),
             new FamGenTree\AdminBundle\FamGenTreeAdminBundle(),
-            new FamGenTree\Theme\AdminFosUserBundle\FamGenTreeThemeAdminFosUserBundle()
         ];
     }
 

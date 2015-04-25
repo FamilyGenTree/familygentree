@@ -57,3 +57,7 @@ fgt_theme_admin_example_responsive_table:
 fgt_theme_admin_example_todo_list:
     path:   /example/todo-list
     defaults: { _controller: FamGenTreeThemeAdminBundle:Example:todoList }
+
+fgt_theme_admin_example_icon_overview:
+    path:   /example/icon-overview
+    defaults: { _controller: FamGenTreeThemeAdminBundle:Example:iconOverview }

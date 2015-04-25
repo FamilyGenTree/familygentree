@@ -1,0 +1,20 @@
+{% extends 'FamGenTreeThemeAdminBundle:Example:_base.html.twig' %}
+
+{% block main_content %}
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Icon Overview</h3>
+            <div class="row mt">
+                {% for icon_name in awesome_font_icons %}
+                    <div class="col-md-1">
+                <i class="fa fa-{{ icon_name }}"></i>
+                <span>{{ icon_name }}</span>
+                    </div>
+                {% endfor %}
+                <div class="col-lg-12">
+                </div>
+            </div>
+
+        </section><! --/wrapper -->
+    </section>
+{% endblock %}

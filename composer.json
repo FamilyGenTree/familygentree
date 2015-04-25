@@ -8,12 +8,18 @@
         "familytrees"
     ],
     "license": "GPL-3.0+",
-        "autoload": {
-            "psr-0": {
-                "": "src/",
-                "SymfonyStandard": "app/"
-            }
+    "autoload": {
+        "psr-0": {
+            "": "src/",
+            "SymfonyStandard": "app/"
+        }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/FamilyGenTree/php-gedcom.git"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
         "symfony/symfony": "2.6.*",
@@ -30,7 +36,7 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "knplabs/knp-menu-bundle": "~2",
         "ircmaxell/password-compat": "1.0.*",
-        "mrkrstphr/php-gedcom": "1.0.*"
+        "mrkrstphr/php-gedcom": "dev-fix_class_duplicates"
     },
     "require-dev": {
         "phpunit/phpunit": "4.5.*",
