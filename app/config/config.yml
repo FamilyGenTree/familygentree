@@ -7,6 +7,7 @@ imports:
 parameters:
     knp_menu.renderer.twig.options:
         currentClass: 'active'
+        ancestorClass: 'active'
         branch_class: 'dropdown'
         template: 'FamGenTreeThemeMainBundle:Default:knp_menu.html.twig'
 

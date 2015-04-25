@@ -8,6 +8,7 @@
 namespace FamGenTree\AdminBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class MenuBuilder extends ContainerAware
@@ -43,11 +44,11 @@ class MenuBuilder extends ContainerAware
             )
         );
 
-        $users = $menu->addChild(
+        $usersMenu = $menu->addChild(
             'Users',
             array_merge(
                 [
-                    'route'              => 'fgt_admin_users',
+                    'uri'                => 'javascript:;',
                     'attributes'         => [
                         'id' => 'user_manage'
                     ],
@@ -62,24 +63,13 @@ class MenuBuilder extends ContainerAware
             )
         );
 
-        $users->addChild(
-            'Add',
-            array_merge(
-                [
-                    'route'      => 'fgt_admin_users',
-                    'attributes' => [
-                        'id' => 'user_add'
-                    ]
-                ],
-                $options
-            )
-        );
+        $this->addUserMenu($usersMenu, $factory, $options);
 
-        $menu->addChild(
+        $genTreeMenu = $menu->addChild(
             'Generation Trees',
             array_merge(
                 [
-                    'uri'      => 'javascript:;',
+                    'uri'        => 'javascript:;',
                     'attributes' => [
                         'id' => 'gentree_manage'
                     ],
@@ -91,7 +81,9 @@ class MenuBuilder extends ContainerAware
             )
         );
 
-        $menu->addChild(
+        $this->addGenTreeMenu($genTreeMenu, $factory, $options);
+
+        $settings = $menu->addChild(
             'Settings',
             array_merge(
                 [
@@ -106,6 +98,8 @@ class MenuBuilder extends ContainerAware
                 $options
             )
         );
+
+        $this->addSettingsMenu($settings, $factory, $options);
 
         //$menuDiagrams = $menu->addChild(
         //    'Diagrams',
@@ -149,6 +143,52 @@ class MenuBuilder extends ContainerAware
         // ... add more children
 
         return $menu;
+    }
+
+    protected function addUserMenu(ItemInterface $menu, FactoryInterface $factory, array $options)
+    {
+        $menu->addChild(
+            'Overview',
+            array_merge(
+                [
+                    'route'      => 'fgt_admin_users',
+                    'attributes' => [
+                        'id' => 'user_add'
+                    ]
+                ],
+                $options
+            )
+        );
+        $menu->addChild(
+            'Add User',
+            array_merge(
+                [
+                    'route'      => 'fgt_admin_user_add',
+                    'attributes' => [
+                        'id' => 'user_add'
+                    ]
+                ],
+                $options
+            )
+        );
+    }
+
+    protected function addSettingsMenu(ItemInterface $menu, FactoryInterface $factory, array $options)
+    {
+        $menu->addChild(
+            'Site Configuration'
+        );
+        $menu->addChild('Logs');
+    }
+
+    protected function addGenTreeMenu(ItemInterface $menu, FactoryInterface $factory, array $options)
+    {
+        $menu->addChild(
+            'Merge Records'
+        );
+        $menu->addChild('Merge Family Trees');
+        $menu->addChild('Manage Unlinked Records');
+        $menu->addChild('Change Log');
     }
 
     //protected function addDiagramMenu(ItemInterface $menu, FactoryInterface $factory, $options)
@@ -309,3 +349,4 @@ class MenuBuilder extends ContainerAware
     //    $menu->setAttribute('class', implode(' ', $classes));
     //}
 }
+

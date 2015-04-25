@@ -40,3 +40,10 @@ services:
   fgt.gentree.manager:
     class: FamGenTree\AppBundle\Context\GenTree\GenTreeManager
     arguments: [@service_container]
+
+  fgt.twig_extension:
+    class: FamGenTree\AppBundle\Twig\AppExtensions
+    public: false
+    arguments: [@fgt.configuration]
+    tags:
+      - { name: twig.extension }

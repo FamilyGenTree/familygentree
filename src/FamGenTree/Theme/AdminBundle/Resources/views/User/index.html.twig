@@ -1,0 +1,59 @@
+{% extends 'FamGenTreeThemeAdminBundle:Default:_base.html.twig' %}
+
+{% block main_title %}
+    Users
+{% endblock %}
+
+{% block main_content %}
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Registered Users</h4>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Real Name</th>
+                            <th>Email</th>
+                            <th>Enabled</th>
+                            <th>Roles</th>
+                            <th>Groups</th>
+                            <th>Last Login</th>
+                            <th>Verified</th>
+                            <th>Approved</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.realName }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+
+                                <div class="switch has-switch">
+                                    <div class="switch-animate {% if user.enabled %}switch-on{% else %}switch-off{% endif %}">
+                                        <input type="checkbox" data-toggle="switch" checked=""/>
+                                        <span class="switch-left">ON</span><label>&nbsp;</label>
+                                        <span class="switch-right">OFF</span>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td>{{ user.roles | join(', ') }}</td>
+                            <td>{{ dump(user.groupNames) }}</td>
+                            <td>{{ user.lastLogin | date }}</td>
+                            <td>hallo</td>
+                        </tr>
+                    {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->
+    </div><!-- /row -->
+{% endblock %}

@@ -5,3 +5,7 @@ fgt_admin_homepage:
 fgt_admin_users:
     path:   /users
     defaults:   { _controller: FamGenTreeAdminBundle:User:index }
+
+fgt_admin_user_add:
+    path:   /user/add
+    defaults:   { _controller: FamGenTreeAdminBundle:User:addUser }

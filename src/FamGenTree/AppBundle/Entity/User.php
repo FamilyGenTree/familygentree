@@ -54,6 +54,8 @@ class User
     extends BaseUser
     implements AdvancedUserInterface
 {
+    const CLASSNAME = 'FamGenTree\AppBundle\Entity\User';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer", name="id_user")
@@ -74,6 +76,8 @@ class User
      */
     protected $passwordAlgorithm = null;
 
+    protected $approved;
+
     public function __construct()
     {
         parent::__construct();
@@ -81,4 +85,19 @@ class User
         $this->passwordAlgorithm = Auth::ALGORITHM_BCRYPT_NEW;
     }
 
+    /**
+     * @return string
+     */
+    public function getRealName()
+    {
+        return $this->realName;
+    }
+
+    /**
+     * @param string $realName
+     */
+    public function setRealName($realName)
+    {
+        $this->realName = $realName;
+    }
 }
