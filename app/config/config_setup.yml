@@ -1,7 +1,7 @@
 imports:
 #    - { resource: config.yml }
     - { resource: services.yml }
-    - { resource: @FamGenTreeSetupBundle/Resources/config/services.yml }
+    - { resource: '@FamGenTreeSetupBundle/Resources/config/services.yml' }
 
 parameters:
     database_prefix: fgt_

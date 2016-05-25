@@ -1,11 +1,11 @@
 fgt_admin_homepage:
     path:     /
-    defaults: { _controller: FamGenTreeAdminBundle:Dashboard:index }
+    defaults: { _controller: 'FamGenTreeAdminBundle:Dashboard:index' }
 
 fgt_admin_users:
     path:   /users
-    defaults:   { _controller: FamGenTreeAdminBundle:User:index }
+    defaults:   { _controller: 'FamGenTreeAdminBundle:User:index' }
 
 fgt_admin_user_add:
     path:   /user/add
-    defaults:   { _controller: FamGenTreeAdminBundle:User:addUser }
+    defaults:   { _controller: 'FamGenTreeAdminBundle:User:addUser' }

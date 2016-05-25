@@ -1,4 +1,4 @@
-# you can read more about security in the related section of the documentation
+# To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
     # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
@@ -39,17 +39,18 @@ security:
 #                path:   _fgt_logout
 #                target: _fgt_homepage
         main:
+            anonymous:    true
+            # activate different ways to authenticate
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                csrf_provider: form.csrf_provider
+#                csrf_provider: form.csrf_provider
 #                check_path: _fgt_security_check
 #                login_path: _fgt_login
             logout:       true
 #            logout:
 #                path:   _fgt_logout
 #                target: _fgt_homepage
-            anonymous:    true
 
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods

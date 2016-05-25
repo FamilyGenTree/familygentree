@@ -11,13 +11,13 @@ use FamGenTree\AppBundle\Context\Configuration\Domain\Config\ConfigRepositoryInt
 use FamGenTree\AppBundle\Context\Configuration\Domain\ConfigKeys;
 use FamGenTree\AppBundle\Context\Configuration\Domain\FgtConfig;
 use FamGenTree\AppBundle\Entity\Config;
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ConfigRepository
-    extends ContainerAware
     implements ConfigRepositoryInterface
 {
+    protected $container;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;

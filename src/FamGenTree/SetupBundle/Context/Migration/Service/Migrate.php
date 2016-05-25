@@ -13,11 +13,14 @@ use FamGenTree\SetupBundle\Context\Migration\Plan\MigrationPlan;
 use FamGenTree\SetupBundle\Context\Migration\Plan\Step\MigrationPlanSqlStep;
 use FamGenTree\SetupBundle\Context\Setup\Config\ConfigDatabase;
 use FamGenTree\SetupBundle\Context\Setup\Step\StepResultAggregate;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class Migrate extends ContainerAware
+class Migrate implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
+
     const TABLE_PREFIX               = '###PREFIX###';
     const DB_SYSTEM_MYSQL            = ConfigDatabase::DB_SYSTEM_MYSQL;
     const MIGRATION_FILENAME_PATTERN = '/^(\d{8,8}-\d{4,4}[a-z]*)[-_](.*)$/';
@@ -370,5 +373,15 @@ class Migrate extends ContainerAware
             return new MigrationPlanSqlStep($this->getConnection(), $this->getDatabaseConfig()
                                                                          ->getPrefix(), $patchId, $file);
         }
+    }
+
+    /**
+     * Sets the container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        // TODO: Implement setContainer() method.
     }
 }

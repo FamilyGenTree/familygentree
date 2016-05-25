@@ -1,15 +1,15 @@
 fgt_homepage:
     path:     /
-    defaults: { _controller: FamGenTreeAppBundle:Welcome:index }
+    defaults: { _controller: 'FamGenTreeAppBundle:Welcome:index' }
 
 _fgt_login:
     path:   /login
-    defaults: { _controller: FamGenTreeAppBundle:Auth:login }
+    defaults: { _controller: 'FamGenTreeAppBundle:Auth:login' }
 
 _fgt_logout:
     path:   /logout
-    defaults: { _controller: FamGenTreeAppBundle:Auth:logout }
+    defaults: { _controller: 'FamGenTreeAppBundle:Auth:logout' }
 
 fgt_dashboard:
     path:   /dashboard
-    defaults: { _controller: FamGenTreeAppBundle:Dashboard:index }
+    defaults: { _controller: 'FamGenTreeAppBundle:Dashboard:index' }

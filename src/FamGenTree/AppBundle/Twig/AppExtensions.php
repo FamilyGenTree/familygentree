@@ -10,8 +10,10 @@ namespace FamGenTree\AppBundle\Twig;
 use FamGenTree\AppBundle\Context\Configuration\Domain\ConfigKeys;
 use FamGenTree\AppBundle\Context\Configuration\Domain\FgtConfig;
 
-class AppExtensions extends \Twig_Extension
+class AppExtensions extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
+    protected $fgtConfig;
+
     public function __construct(FgtConfig $config)
     {
         $this->fgtConfig = $config;

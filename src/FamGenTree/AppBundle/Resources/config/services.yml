@@ -5,7 +5,7 @@ services:
 
   fgt.configuration.factory:
     class: FamGenTree\AppBundle\Context\Configuration\Infrastructure\ConfigRepository
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.configuration:
     class: FamGenTree\AppBundle\Context\Configuration\Domain\FgtConfig
@@ -13,7 +13,7 @@ services:
 
   fgt.configuration.parameters.factory:
     class: FamGenTree\AppBundle\Context\Configuration\Infrastructure\ParametersRepository
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.configuration.parameters:
     class: FamGenTree\AppBundle\Context\Configuration\Domain\SymfonyParameters\SymfonyParameters
@@ -21,29 +21,29 @@ services:
 
   fgt.tblprefix_subscriber:
     class: FamGenTree\AppBundle\Subscriber\TablePrefixSubscriber
-    arguments: [%database_prefix%]
+    arguments: ['%database_prefix%']
     tags:
       - { name: doctrine.event_subscriber }
 
   fgt.session:
     class: FamGenTree\AppBundle\Service\Session
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.auth:
     class: FamGenTree\AppBundle\Service\Auth
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.import.manager:
     class: FamGenTree\AppBundle\Context\Import\ImportManager
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.gentree.manager:
     class: FamGenTree\AppBundle\Context\GenTree\GenTreeManager
-    arguments: [@service_container]
+    arguments: ['@service_container']
 
   fgt.twig_extension:
     class: FamGenTree\AppBundle\Twig\AppExtensions
     public: false
-    arguments: [@fgt.configuration]
+    arguments: ['@fgt.configuration']
     tags:
       - { name: twig.extension }

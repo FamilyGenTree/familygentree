@@ -8,11 +8,13 @@
 namespace FamGenTree\SetupBundle\Context\Setup\Step;
 
 use FamGenTree\SetupBundle\Context\Setup\Config\ConfigAbstract;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-abstract class StepBase extends ContainerAware
+abstract class StepBase implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
     protected $results = [];
     protected $config  = null;
 
@@ -33,22 +35,6 @@ abstract class StepBase extends ContainerAware
 
     abstract public function run();
 
-    /**
-     * @param ConfigAbstract|null $config
-     */
-    public function setConfig($config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * @return StepResult[]
-     */
-    public function getResults()
-    {
-        return $this->results;
-    }
-
     public function isSuccess()
     {
         $ret = true;
@@ -60,11 +46,27 @@ abstract class StepBase extends ContainerAware
     }
 
     /**
+     * @return StepResult[]
+     */
+    public function getResults()
+    {
+        return $this->results;
+    }
+
+    /**
      * @return ConfigAbstract|null
      */
     protected function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * @param ConfigAbstract|null $config
+     */
+    public function setConfig($config)
+    {
+        $this->config = $config;
     }
 
     protected function addResult(StepResult $result)

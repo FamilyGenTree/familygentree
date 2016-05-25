@@ -9,9 +9,10 @@ namespace FamGenTree\AdminBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class MenuBuilder extends ContainerAware
+class MenuBuilder implements ContainerAwareInterface
 {
 
     public function adminMenu(FactoryInterface $factory, array $options)
@@ -348,5 +349,14 @@ class MenuBuilder extends ContainerAware
     //    $classes[] = $class;
     //    $menu->setAttribute('class', implode(' ', $classes));
     //}
+    /**
+     * Sets the container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        // TODO: Implement setContainer() method.
+    }
 }
 

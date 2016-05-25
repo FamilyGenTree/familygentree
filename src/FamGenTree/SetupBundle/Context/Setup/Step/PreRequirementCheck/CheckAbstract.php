@@ -8,11 +8,14 @@
 namespace FamGenTree\SetupBundle\Context\Setup\Step\PreRequirementCheck;
 
 use FamGenTree\SetupBundle\Context\Setup\Step\PreRequirementCheck\ValueObject\PreRequirementResult;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-abstract class CheckAbstract extends ContainerAware implements CheckInterface
+abstract class CheckAbstract implements ContainerAwareInterface, CheckInterface
 {
+    use ContainerAwareTrait;
+    
     protected $results;
     protected $name;
     protected $description;
