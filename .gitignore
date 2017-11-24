@@ -13,14 +13,8 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
-/app/phpunit.xml
-/bin/
-/composer.phar
 /vendor/
 /web/bundles/
-/web/assetic/*
-/web/css/*
-/web/js/*
 
 *.swp
 .idea/
