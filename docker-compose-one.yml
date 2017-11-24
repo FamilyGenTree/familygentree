@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  composer:
+    build: tools/phpdocker/php-cli
+    container_name: fgt-php-composer
+    working_dir: /application
+    # user: www-data
+    volumes:
+      - .:/application
+    entrypoint: [ '/bin/bash']
+    # entrypoint: [ 'php','/usr/local/bin/composer.phar', '--ansi' ]
+
+  console:
+    build: tools/phpdocker/php-cli
+    container_name: fgt-php-console
+    working_dir: /application
+    # user: www-data
+    volumes:
+      - .:/application
+    entrypoint: [ 'php','bin/console' ]
